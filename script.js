@@ -35,13 +35,22 @@
   });
 
   let ex3two = document.querySelector("#ex3_two")
-  ex3two.addEventListener("dragover", function(e){
+  let ex3one = document.querySelector("#ex3_one")
+  
+  function dragoverHandler(e){
     e.preventDefault();
-  });
+  }
 
-  ex3two.addEventListener("drop", function(e){
+  function dropHandler(e){
     e.preventDefault();
     const data = e.dataTransfer.getData("text");
     e.target.appendChild(document.getElementById(data));
-  });
+  }
+
+
+  ex3two.addEventListener("dragover", dragoverHandler);
+  ex3one.addEventListener("dragover", dragoverHandler);
+
+  ex3two.addEventListener("drop", dropHandler);
+  ex3one.addEventListener("drop", dropHandler);
 })();
